@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>활동 달력</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-cal" viewBox="0 0 24 24"><path d="M3 5h18v16H3z M3 10h18 M8 3v4 M16 3v4"/></symbol>
+  <symbol id="i-contest" viewBox="0 0 24 24"><path d="M7 4h10v5l-3 4h-4l-3-4z M12 13v5 M8 20h8 M7 6H4v2l3 2 M17 6h3v2l-3 2"/></symbol>
+  <symbol id="i-act" viewBox="0 0 24 24"><path d="M6 21V3 M6 4h13l-3 4 3 4H6"/></symbol>
+  <symbol id="i-edu" viewBox="0 0 24 24"><path d="M3 5h8v15H3z M13 5h8v15h-8z M5.5 9h3 M15.5 9h3"/></symbol>
+  <symbol id="i-field" viewBox="0 0 24 24"><path d="M4 4h7v7H4z M13 4h7v7h-7z M4 13h7v7H4z M13 13h7v7h-7z"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24"><path d="M6 9V3h12v6 M6 17H3V9h18v8h-3 M6 14h12v7H6z"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M5 5l14 14 M19 5L5 19"/></symbol>
+  <symbol id="i-prev" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="i-next" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M9 5H4v15h15v-5 M13 4h7v7 M20 4L10 14"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4v16 M4 12h16"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><path d="M8 8h12v13H8z M4 16V3h12"/></symbol>
+</svg>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <h1 id="title">활동 달력</h1>
+    <div class="topbar-right">
+      <button class="icon-btn" id="btn-add" type="button" aria-label="활동 추가">
+        <svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>
+      </button>
+      <button class="btn sm" id="btn-today" type="button">오늘</button>
+      <button class="icon-btn" id="btn-print" type="button" aria-label="인쇄">
+        <svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="page" id="app"></main>
+
+<nav class="nav" aria-label="화면 이동">
+  <a href="#/home" data-nav="home" aria-label="달력" title="달력"><svg class="icon" aria-hidden="true"><use href="#i-cal"/></svg></a>
+  <a href="#/contest" data-nav="contest" aria-label="공모전" title="공모전"><svg class="icon" aria-hidden="true"><use href="#i-contest"/></svg></a>
+  <a href="#/activity" data-nav="activity" aria-label="대외활동" title="대외활동"><svg class="icon" aria-hidden="true"><use href="#i-act"/></svg></a>
+  <a href="#/edu" data-nav="edu" aria-label="교육" title="교육"><svg class="icon" aria-hidden="true"><use href="#i-edu"/></svg></a>
+  <a href="#/field" data-nav="field" aria-label="분야별" title="분야별"><svg class="icon" aria-hidden="true"><use href="#i-field"/></svg></a>
+</nav>
+
+<div class="modal-back" id="modal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
+    <div class="modal-head">
+      <h2 id="m-title"></h2>
+      <button class="icon-btn" id="m-close" type="button" aria-label="닫기">
+        <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+      </button>
+    </div>
+    <div class="modal-body" id="m-body"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
